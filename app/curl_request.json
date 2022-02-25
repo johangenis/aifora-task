@@ -43,31 +43,3 @@
         ]
     }
 }
-
-{
-    "groups": {
-        "groupKey": "string",
-        "sourceLocations": [
-            {
-                "locationKey": "string",
-                "skus": {
-                    "skuKey": "string",
-                    "demandFactor": 0,
-                    "maxQuantity": 0,
-                    "minQuantity": 0
-                }
-            }
-        ],
-        "sinkLocations": [
-            {
-                "locationKey": "string",
-                "skus": {
-                    "skuKey": "string",
-                    "demandFactor": 0,
-                    "maxQuantity": 0,
-                    "minQuantity": 0
-                }
-            }
-        ]
-    }
-}
