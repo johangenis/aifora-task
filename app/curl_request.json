@@ -1,0 +1,73 @@
+{
+    "groups": {
+        "groupKey": "option1",
+        "sourceLocations": [
+            {
+                "locationKey": "wh1",
+                "skus": [
+                    {
+                        "skuKey": "sku1",
+                        "maxQuantity": 12
+                    }
+                ]
+            }
+        ],
+        "sinkLocations": [
+            {
+                "locationKey": "loc1",
+                "skus": {
+                    "skuKey": "sku1",
+                    "demandFactor": 1,
+                    "maxQuantity": 100,
+                    "minQuantity": 0
+                }
+            },
+            {
+                "locationKey": "loc2",
+                "skus": {
+                    "skuKey": "sku1",
+                    "demandFactor": 2,
+                    "maxQuantity": 100,
+                    "minQuantity": 0
+                }
+            },
+            {
+                "locationKey": "loc3",
+                "skus": {
+                    "skuKey": "sku1",
+                    "demandFactor": 3,
+                    "maxQuantity": 100,
+                    "minQuantity": 0
+                }
+            }
+        ]
+    }
+}
+
+{
+    "groups": {
+        "groupKey": "string",
+        "sourceLocations": [
+            {
+                "locationKey": "string",
+                "skus": {
+                    "skuKey": "string",
+                    "demandFactor": 0,
+                    "maxQuantity": 0,
+                    "minQuantity": 0
+                }
+            }
+        ],
+        "sinkLocations": [
+            {
+                "locationKey": "string",
+                "skus": {
+                    "skuKey": "string",
+                    "demandFactor": 0,
+                    "maxQuantity": 0,
+                    "minQuantity": 0
+                }
+            }
+        ]
+    }
+}
