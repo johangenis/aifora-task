@@ -1,6 +1,6 @@
 # Aifora take-home task
 
-1. Write a Python Rest-Service which takes input requests of the form "test\_request.json". (Part of the files in this repository.)
+Write a Python Rest-Service which takes input requests of the form "test\_request.json". (Part of the files in this repository.)
 
 And yields responses of the form "test\_response.json". (Part of the files in this repository.)
 
