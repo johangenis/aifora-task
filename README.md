@@ -20,9 +20,6 @@ for this task and all short cuts are allowed.
 7. Use the supplied test\_response.json and test\_reply.json as request body inputs to the requests
 8. It is noted that curl\_request.txt returned a valid response when tested
 =======
-
-# aifora-task
-
 ## Local Setup
 
 1. `pip install poetry`
