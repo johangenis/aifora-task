@@ -1,0 +1,57 @@
+curl -X 'POST' \
+  'http: //127.0.0.1:8000/optimize' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "groups": [
+        {
+            "groupKey": "option1",
+            "sourceLocations": [
+                {
+                    "locationKey": "wh1",
+                    "skus": [
+                        {
+                            "skuKey": "sku1",
+                            "maxQuantity": 12
+                        }
+                    ]
+                }
+            ],
+            "sinkLocations": [
+                {
+                    "locationKey": "loc1",
+                    "skus": [
+                        {
+                            "skuKey": "sku1",
+                            "demandFactor": 1,
+                            "maxQuantity": 100,
+                            "minQuantity": 0
+                        }
+                    ]
+                },
+                {
+                    "locationKey": "loc2",
+                    "skus": [
+                        {
+                            "skuKey": "sku1",
+                            "demandFactor": 2,
+                            "maxQuantity": 100,
+                            "minQuantity": 0
+                        }
+                    ]
+                },
+                {
+                    "locationKey": "loc3",
+                    "skus": [
+                        {
+                            "skuKey": "sku1",
+                            "demandFactor": 3,
+                            "maxQuantity": 100,
+                            "minQuantity": 0
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}'

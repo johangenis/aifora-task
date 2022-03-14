@@ -1,0 +1,33 @@
+{
+    "groups": [
+        {
+            "groupKey": "option1",
+            "movements": [
+                {
+                    "allocationQuantity": 1,
+                    "sinkLocationKey": "loc1",
+                    "skuKey": "sku1",
+                    "sourceLocationKey": "wh1"
+                },
+                {
+                    "allocationQuantity": 2,
+                    "sinkLocationKey": "loc2",
+                    "skuKey": "sku1",
+                    "sourceLocationKey": "wh1"
+                },
+                {
+                    "allocationQuantity": 3,
+                    "sinkLocationKey": "loc3",
+                    "skuKey": "sku1",
+                    "sourceLocationKey": "wh1"
+                },
+                {
+                    "allocationQuantity": 6,
+                    "sinkLocationKey": "wh1",
+                    "skuKey": "sku1",
+                    "sourceLocationKey": "wh1"
+                }
+            ]
+        }
+    ]
+}

@@ -2,41 +2,79 @@ from fastapi import FastAPI, APIRouter, Body
 
 from pydantic import BaseModel, HttpUrl
 
-from typing import Sequence, List
+from typing import Sequence, Optional
+
+app = FastAPI(title="aifora API", openapi_url="/openapi.json")
+
+OPTIMIZE_GROUPS = []
+MOVEMENTS_GROUPS = []
 
 
 class SKUs(BaseModel):
     skuKey: str
-    demandFactor: int = None
-    maxQuantity: int = None
-    minQuantity: int = None
+    demandFactor: Optional[int]
+    maxQuantity: Optional[int]
+    minQuantity: Optional[int]
 
 
 class SinkLocations(BaseModel):
     locationKey: str
-    skus: SKUs
+    skus: list[SKUs]
 
 
 class SourceLocations(BaseModel):
     locationKey: str
-    skus: SKUs
+    skus: list[SKUs]
 
 
-class Groups(BaseModel):
+class Group(BaseModel):
     groupKey: str
-    sourceLocations: List[SourceLocations]
-    sinkLocations: List[SinkLocations]
+    sourceLocations: list[SourceLocations]
+    sinkLocations: list[SinkLocations]
 
 
-app = FastAPI(title="aifora API", openapi_url="/openapi.json")
+class Movement(BaseModel):
+    allocationQuantity: int
+    sinkLocationKey: str
+    skuKey: str
+    sourceLocationKey: str
+
+
+class Movements(BaseModel):
+    groupKey: str
+    movements: list[Movement]
+
+
+class OptimizeGroups(BaseModel):
+    groups: list[Group]
+
+
+class MovementsGroups(BaseModel):
+    groups: list[Movements]
+
+
+@app.post("/optimize/")
+async def create_optimize_groups(groups: OptimizeGroups):
+    OPTIMIZE_GROUPS.append(groups)
+    return groups
+
+
+@app.post("/movements/")
+async def create_movements_groups(groups: MovementsGroups):
+    MOVEMENTS_GROUPS.append(groups)
+    return groups
+
+
+@app.get("/optimize/")
+async def list_optimize_groups():
+    return OPTIMIZE_GROUPS
+
+
+@app.get("/movements/")
+async def list_movements_groups():
+    return MOVEMENTS_GROUPS
 
 api_router = APIRouter()
-
-
-@app.put("/optimization/{groupKey}")
-async def update_group(*, groupKey: str, groups: Groups = Body(..., embed=True)):
-    results = {"groups": groups}
-    return results
 
 app.include_router(api_router)
 
